@@ -1,4 +1,5 @@
-# hello-world
+# todo-list
+Sample project to learn Vue3
 
 ## Project setup
 ```
