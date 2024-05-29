@@ -3,7 +3,7 @@
     <button @click="addItem" class="btn btn-primary">Add new item</button>
     <input type="text" v-model="newItemName" class="form-control" />
     <ul style="padding: 0; padding: 0;">
-      <TodoItem v-for="(item, index) in itemList" :key="index" :title="item" />
+      <TodoItem v-for="(item, index) in itemList" :key="index" :title="item" :index="index" @delete-item="deleteItem" />
     </ul>
     <h2 v-if="itemList.length === 0">No items...</h2>
   </div>
@@ -23,6 +23,10 @@ const addItem = function () {
 
   itemList.value.push(newItemName.value.trim());
   newItemName.value = '';
+}
+
+const deleteItem = function(index) {
+  itemList.value.splice(index, 1);
 }
 
 </script>
