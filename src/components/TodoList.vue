@@ -15,6 +15,11 @@ import TodoItem from './TodoItem.vue';
 
 let newItemName = ref('');
 let itemList = ref([]);
+let localList = localStorage.getItem('localList');
+if(localList) {
+  itemList.value = localList.split(',');
+}
+
 
 const addItem = function () {
   if (newItemName.value.trim().length === 0) {
@@ -22,11 +27,13 @@ const addItem = function () {
   }
 
   itemList.value.push(newItemName.value.trim());
+  localStorage.setItem('localList', itemList.value)
   newItemName.value = '';
 }
 
 const deleteItem = function(index) {
   itemList.value.splice(index, 1);
+  localStorage.setItem('localList', itemList.value)
 }
 
 </script>
