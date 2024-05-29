@@ -5,6 +5,7 @@
     <ul style="padding: 0; padding: 0;">
       <TodoItem v-for="(item, index) in itemList" :key="index" :title="item" />
     </ul>
+    <h2 v-if="itemList.length === 0">No items...</h2>
   </div>
 </template>
 
